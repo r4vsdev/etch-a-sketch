@@ -9,3 +9,13 @@ function makeGrid(numberOfSquares) {
 }
 
 makeGrid(256)
+
+const squares = document.querySelectorAll('.square')
+squares.forEach(square => square.addEventListener('mouseenter',changeBackground ));
+
+function changeBackground() {
+    console.log('hi');
+    this.style.background = 'white';                                      
+
+}
+
