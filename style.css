@@ -1,0 +1,17 @@
+body {
+    background: grey;
+}
+
+.grid {
+    color: white;
+    display: flex;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+.square {
+    background: black;
+    width: 40px;
+    height: 40px;
+
+}
