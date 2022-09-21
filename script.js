@@ -4,11 +4,16 @@ function makeGrid(numberOfSquares) {
         const grid = document.querySelector('.grid');
         const square = document.createElement('div');
         square.classList.add('square');
-        square.textContent = i;
         grid.appendChild(square);
+
+        const style = getComputedStyle(grid);
+        const width = parseInt(style.width.replace('px',''));
+        square.setAttribute('style',`width: ${width/numberOfSquares}px;`)
     }
     size = i-1;
 }
+makeGrid(10)
+
 
 function deleteGrid() {
     for (i = 1 ; i <= size ; i++) {
@@ -21,14 +26,13 @@ function changeBackground() {
     this.style.background = 'white';                                      
 }
 
-function getNewSize () {
+function makeNewGrid () {
     let newSize = window.prompt("Enter the new size of the grid","16");
     deleteGrid();
     makeGrid(newSize);
 }
 
 
-makeGrid(16)
 
 // change background on hover
 const squares = document.querySelectorAll('.square')
@@ -36,4 +40,4 @@ squares.forEach(square => square.addEventListener('mouseenter',changeBackground 
 
 // New Grid
 const btn = document.querySelector('.btn');
-btn.addEventListener('click', getNewSize);
+btn.addEventListener('click', makeNewGrid);

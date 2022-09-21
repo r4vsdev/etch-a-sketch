@@ -1,17 +1,27 @@
 body {
     background: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grid {
     color: white;
     display: flex;
-    gap: 1px;
+    gap: 0px;
     flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
 }
 
 .square {
     background: black;
-    width: 40px;
-    height: 40px;
+    min-width: 5px;
+    min-height: 5px;
+    flex: 1 1 auto;
+}
 
+.btn {
+    width: 100px;
+    margin-bottom: 10px;
 }
