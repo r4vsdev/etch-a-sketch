@@ -6,7 +6,6 @@ body {
 }
 
 .grid {
-    color: white;
     display: flex;
     gap: 0px;
     flex-wrap: wrap;

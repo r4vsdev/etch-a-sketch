@@ -1,43 +1,42 @@
 let size;
+let squares;
 function makeGrid(numberOfSquares) {
     for (i=1 ; i <= numberOfSquares**2 ; i++) {
         const grid = document.querySelector('.grid');
         const square = document.createElement('div');
         square.classList.add('square');
-        grid.appendChild(square);
-
-        const style = getComputedStyle(grid);
-        const width = parseInt(style.width.replace('px',''));
+        const width = parseInt(getComputedStyle(grid).width.replace('px',''));
         square.setAttribute('style',`width: ${width/numberOfSquares}px;`)
+
+        grid.appendChild(square);
     }
     size = i-1;
+    updateSquareList();
+    squares.forEach(square => square.addEventListener('mouseenter', changeBackground ));
 }
-makeGrid(10)
-
-
-function deleteGrid() {
+function deleteGrid () {
     for (i = 1 ; i <= size ; i++) {
         const square = document.querySelector('.square');
         square.remove();
     }
 }
-
-function changeBackground() {
-    this.style.background = 'white';                                      
+function changeBackground () {
+    this.style.background = 'white';
 }
-
 function makeNewGrid () {
-    let newSize = window.prompt("Enter the new size of the grid","16");
+    let newSize = window.prompt("Enter the new size of the grid","10");
+    if (typeof(newSize) != 'number') {}
+    if (newSize > 50) {newSize = 50;}
+    if (newSize <= 0) {newSize = 4}
     deleteGrid();
     makeGrid(newSize);
 }
+function updateSquareList () {
+    squares = document.querySelectorAll('.square');
+}
 
+makeGrid(4);
 
-
-// change background on hover
-const squares = document.querySelectorAll('.square')
-squares.forEach(square => square.addEventListener('mouseenter',changeBackground ));
-
-// New Grid
+// New Grid btn
 const btn = document.querySelector('.btn');
 btn.addEventListener('click', makeNewGrid);
