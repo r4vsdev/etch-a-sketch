@@ -5,7 +5,7 @@ function makeGrid(numberOfSquares) {
         const grid = document.querySelector('.grid');
         const square = document.createElement('div');
         square.classList.add('square');
-        const width = parseInt(getComputedStyle(grid).width.replace('px',''));
+        const width = parseInt(getComputedStyle(grid).width.replace('px','')); 
         square.setAttribute('style',`width: ${width/numberOfSquares}px;`)
 
         grid.appendChild(square);
@@ -20,12 +20,16 @@ function deleteGrid () {
         square.remove();
     }
 }
+function getRandomColor () {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return `#${randomColor}`;
+}
 function changeBackground () {
+    // this.style.background = getRandomColor();
     this.style.background = 'white';
 }
 function makeNewGrid () {
-    let newSize = window.prompt("Enter the new size of the grid","10");
-    if (typeof(newSize) != 'number') {}
+    let newSize = +window.prompt("Enter the new size of the grid","10");
     if (newSize > 50) {newSize = 50;}
     if (newSize <= 0) {newSize = 4}
     deleteGrid();

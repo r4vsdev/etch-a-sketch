@@ -2,7 +2,8 @@ body {
     background: grey;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 .grid {
@@ -14,7 +15,7 @@ body {
 }
 
 .square {
-    background: black;
+    background: rgb(0, 0, 0);
     min-width: 5px;
     min-height: 5px;
     flex: 1 1 auto;
@@ -22,5 +23,22 @@ body {
 
 .btn {
     width: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px 20px 20px 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.header {
+    margin: 40px;
+    font-size: xx-large;
+    text-align: center;
 }
