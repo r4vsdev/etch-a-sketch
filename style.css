@@ -51,20 +51,25 @@ body {
     height: 50px;
 }
 button {
-    border: none;
     padding: 13px;
     border-radius: 15px;
     width: 50px;
     height: 50px;
 }
+button:hover {
+    transform: scale(1.1);
+}
 .btn {
+    border: none;
     margin-bottom: 30px;
     background: #5995da2f;
 }
-#black {
-    background: black;
+#white {
+    background: white;
+    border: solid 1px;
 }
 #colorful {
+    border: solid 1px;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(222,168,248,1) 0%, rgba(168,222,258,1) 21.9%, rgba(189,250,205,1) 35.6%, rgba(243,250,189,1) 53.9%, rgba(250,227,189,1) 66.8%, rgba(248,172,171,1) 95%, rgba(254,170,212,1) 99.9% );
 }
 
