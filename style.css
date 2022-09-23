@@ -2,7 +2,6 @@
     font-family: monospace;
     color: #5d6063;
 }
-
 body {
     height: 100vh;
     margin: 0;
@@ -20,7 +19,6 @@ body {
     height: 400px;
     border: 3px solid #5d606330;
     border-radius: 8px;
-
 }
 .square {
     background: #5995da2f;;

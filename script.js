@@ -1,20 +1,23 @@
 let size;
 let squares;
 let currentColor = 'white';
+
 function makeGrid(numberOfSquares) {
+    const grid = document.querySelector('.grid');
+    const width = parseInt(
+        getComputedStyle(grid)
+        .width
+        .replace('px',''));
+    
     for (i=1 ; i <= numberOfSquares**2 ; i++) {
-        const grid = document.querySelector('.grid');
         const square = document.createElement('div');
         square.classList.add('square');
-        const width = parseInt(getComputedStyle(grid).width.replace('px','')); 
         square.setAttribute('style',`width: ${width/numberOfSquares}px;`)
-
         grid.appendChild(square);
     }
     size = i-1;
     updateSquareList();
     squares.forEach(square => square.addEventListener('mouseenter', changeBackgroundToCurrentColor));
-    // squares.forEach(square => square.addEventListener('mouseenter', changeBackgroundToRandom ));
 }
 function deleteGrid () {
     for (i = 1 ; i <= size ; i++) {
@@ -23,17 +26,16 @@ function deleteGrid () {
     }
 }
 function getRandomColor () {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    return `#${randomColor}`;
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 function changeBackgroundToCurrentColor() {
     if (currentColor === 'colorful') this.style.background = getRandomColor();
-    if (currentColor === 'white') this.style.background = 'white';
+    if (currentColor === 'white')    this.style.background = 'white';
 }
 function makeNewGrid () {
     let newSize = +window.prompt("Enter the new size of the grid","20");
-    if (newSize > 50) {newSize = 50;}
-    if (newSize <= 0) {newSize = 4}
+    if (newSize > 60) newSize = 60;
+    if (newSize <= 0) newSize = 4;
     deleteGrid();
     makeGrid(newSize);
 }
@@ -56,6 +58,7 @@ btn.addEventListener('click', makeNewGrid);
 // white
 const whiteButton = document.querySelector('#white');
 whiteButton.addEventListener('click', changeCurrentColorToWhite);
+
 // colorful
 const colorfulButton = document.querySelector('#colorful');
 colorfulButton.addEventListener('click', changeCurrentColorToColorful);
